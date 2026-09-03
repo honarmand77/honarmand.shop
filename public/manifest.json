@@ -1,0 +1,61 @@
+{
+  "name": "فروشگاه هنرمند",
+  "short_name": "هنرمند",
+  "description": "فروشگاه آنلاین هنرمند - خرید آسان و مطمئن",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/icons/icon.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "سبد خرید",
+      "short_name": "سبد خرید",
+      "description": "مشاهده سبد خرید",
+      "url": "/cart",
+      "icons": [
+        {
+          "src": "/icons/cart-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "محصولات",
+      "short_name": "محصولات",
+      "description": "مشاهده محصولات",
+      "url": "/store",
+      "icons": [
+        {
+          "src": "/icons/products-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "پروفایل",
+      "short_name": "پروفایل",
+      "description": "مشاهده پروفایل کاربری",
+      "url": "/profile",
+      "icons": [
+        {
+          "src": "/icons/profile-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

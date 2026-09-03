@@ -1,0 +1,433 @@
+/* ============================================
+   بهینه‌سازی مرکز صفحه (کاهش CLS و بهبود FCP)
+   ============================================ */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  
+  /* ✅ ثابت کردن ارتفاع برای جلوگیری از جابه‌جایی محتوا */
+  min-height: 100vh;
+  contain: layout style;
+  
+  @media (max-width: 1024px) {
+    gap: 18px;
+    min-height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
+}
+
+/* ============================================
+   بهینه‌سازی Hero Banner - جلوگیری از CLS
+   ============================================ */
+.hero-banner-container {
+  /* ✅ اندازه ثابت برای جلوگیری از CLS */
+  height: clamp(250px, 40vw, 450px);
+  min-height: 250px;
+  max-height: 450px;
+  
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f0f0f0;
+  
+  @media (max-width: 768px) {
+    height: clamp(200px, 35vw, 350px);
+    min-height: 200px;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    height: clamp(150px, 30vw, 250px);
+    min-height: 150px;
+    border-radius: 8px;
+  }
+}
+
+.hero-banner-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1440 / 450;
+}
+
+/* ============================================
+   بهینه‌سازی گرید محصولات تخفیف‌دار
+   ============================================ */
+.deals-products-grid {
+  scroll-behavior: smooth;
+  padding: 10px;
+  
+  /* ✅ مخفی کردن اسکرولبار */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  /* ✅ جلوگیری از جا‌به‌جایی */
+  contain: layout style;
+  
+  /* ✅ بهینه‌سازی رندرینگ */
+  will-change: transform;
+  transform: translateZ(0);
+  
+  /* ✅ رزرو فضای محصولات برای جلوگیری از CLS */
+  min-height: 200px;
+  
+  /* ✅ نمایش به صورت گرید واکنش‌گرا */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  
+  /* ✅ ارتفاع ثابت برای ردیف‌ها */
+  grid-auto-rows: minmax(280px, auto);
+  
+  @media (max-width: 768px) {
+    padding: 8px;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    min-height: 150px;
+    grid-auto-rows: minmax(240px, auto);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 5px;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    min-height: 120px;
+    grid-auto-rows: minmax(200px, auto);
+  }
+}
+
+/* ============================================
+   بهینه‌سازی گرید محصولات ویژه
+   ============================================ */
+.featured-products-grid {
+  scroll-behavior: smooth;
+  padding: 10px;
+  
+  /* ✅ مخفی کردن اسکرولبار */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  /* ✅ جلوگیری از جا‌به‌جایی */
+  contain: layout style;
+  
+  /* ✅ بهینه‌سازی رندرینگ */
+  will-change: transform;
+  transform: translateZ(0);
+  
+  /* ✅ رزرو فضای محصولات برای جلوگیری از CLS */
+  min-height: 200px;
+  
+  /* ✅ نمایش به صورت گرید واکنش‌گرا */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  
+  /* ✅ ارتفاع ثابت برای ردیف‌ها */
+  grid-auto-rows: minmax(280px, auto);
+  
+  @media (max-width: 768px) {
+    padding: 8px;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    min-height: 150px;
+    grid-auto-rows: minmax(240px, auto);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 5px;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    min-height: 120px;
+    grid-auto-rows: minmax(200px, auto);
+  }
+}
+
+/* ============================================
+   کلاس کمکی برای کارت‌های محصول (جلوگیری از CLS)
+   ============================================ */
+.product-card {
+  /* ✅ ارتفاع ثابت برای هر کارت */
+  height: 100%;
+  min-height: 280px;
+  max-height: 100%;
+  
+  /* ✅ جلوگیری از خروج محتوا */
+  overflow: hidden;
+  
+  /* ✅ بهینه‌سازی رندرینگ */
+  contain: content;
+  will-change: transform;
+  
+  /* ✅ سایه و حاشیه‌های نرم */
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  /* ✅ نمایش به صورت ستون */
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 240px;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 200px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================
+   بهینه‌سازی تصاویر داخل کارت‌ها
+   ============================================ */
+.product-card img {
+  /* ✅ رزرو فضای تصویر */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  
+  /* ✅ نمایش زیبا */
+  object-fit: cover;
+  
+  /* ✅ جلوگیری از CLS */
+  display: block;
+  
+  /* ✅ بهینه‌سازی برای نمایش سریع‌تر */
+  content-visibility: auto;
+  contain-intrinsic-size: 200px 200px;
+  
+  /* ✅ افکت محو شدن */
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  background: #f0f0f0;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+
+
+/* ============================================
+   محتوای کارت محصول
+   ============================================ */
+.product-card .product-info {
+  flex: 1;
+  padding: 8px 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-card .product-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.product-card .product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-top: auto;
+}
+
+/* ============================================
+   Skeleton Loading - کاهش CLS
+   ============================================ */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  min-height: 200px;
+  
+  @media (max-width: 768px) {
+    min-height: 150px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 120px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+
+  }
+}
+
+/* ============================================
+   بهینه‌سازی کلی برای تمام گریدها
+   ============================================ */
+[class*="-grid"] {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================
+   بهینه‌سازی بارگذاری تنبل (Lazy Loading)
+   ============================================ */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   بهینه‌سازی برای Dark Mode
+   ============================================ */
+.dark .product-card {
+  background: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .product-card .product-title {
+  color: #eee;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+}
+
+.dark .hero-banner-container {
+  background: #1a1a1a;
+}
+
+/* ============================================
+   بهینه‌سازی برای کاهش FCP و LCP
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .skeleton {
+    animation: none !important;
+    background: #f0f0f0 !important;
+  }
+}
+
+/* ============================================
+   کلاس‌های کمکی
+   ============================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.fixed-height {
+  min-height: 200px;
+  
+  @media (max-width: 768px) {
+    min-height: 150px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 120px;
+  }
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   بهینه‌سازی تصاویر LCP
+   ============================================ */
+.lcp-image {
+  content-visibility: auto;
+  contain: paint;
+  background: #f0f0f0;
+}
+
+.lcp-image img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lcp-image img.loaded {
+  opacity: 1;
+}
+
+/* ============================================
+   جلوگیری از FOUC
+   ============================================ */
+.no-fouc {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  
+  &.visible {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   بهبود تایپوگرافی
+   ============================================ */
+body {
+  font-family: "yekan", "yekan-fallback", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================
+   بهینه‌سازی برای نمایشگرهای بزرگ
+   ============================================ */
+@media (min-width: 1440px) {
+  .deals-products-grid,
+  .featured-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(320px, auto);
+  }
+  
+  .product-card {
+    min-height: 320px;
+  }
+}

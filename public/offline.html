@@ -1,0 +1,196 @@
+<!-- public/offline.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آفلاین - فروشگاه هنرمند</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @font-face {
+            font-family: 'BYekan+';
+            src: url('/assets/fonts/BYekan+.ttf') format('truetype');
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'BYekan+', -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            direction: rtl;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            max-width: 420px;
+            width: 100%;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        .icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        
+        h1 {
+            color: #1a202c;
+            margin-bottom: 12px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #4a5568;
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 6px 20px;
+            background: #e53e3e;
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .features {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 24px;
+        }
+        
+        .feature-item {
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #2d3748;
+        }
+        
+        .feature-item .emoji {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .feature-item .label {
+            font-weight: 500;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .icon {
+                font-size: 56px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            
+            .feature-item {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="icon">📡</span>
+        <span class="status">آفلاین</span>
+        <h1>اتصال اینترنت قطع شد</h1>
+        <p>
+            متأسفیم! شما در حال حاضر آفلاین هستید.
+            لطفاً اتصال اینترنت خود را بررسی کنید و دوباره تلاش کنید.
+        </p>
+        <button class="btn" onclick="location.reload()">
+            🔄 تلاش مجدد
+        </button>
+        
+        <div class="features">
+            <div class="feature-item">
+                <span class="emoji">💾</span>
+                <span class="label">کش شده</span>
+            </div>
+            <div class="feature-item">
+                <span class="emoji">⚡</span>
+                <span class="label">سریع</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

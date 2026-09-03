@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- ========================================== -->
+    <!-- 1. متا تگ‌های پایه -->
+    <!-- ========================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- ========================================== -->
+    <!-- 2. عنوان و توضیحات -->
+    <!-- ========================================== -->
+    <title>فروشگاه هنرمند</title>
+    <meta name="description" content="فروشگاه هنرمند - بزرگترین فروشگاه آنلاین محصولات خارجی " />
+    <meta name="keywords" content="فروشگاه هنرمند , خرید آنلاین , مواد غذایی خارجی هنرمند " />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="فروشگاه هنرمند" />
+    
+    <!-- ========================================== -->
+    <!-- 3. آیکون‌ها -->
+    <!-- ========================================== -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- ========================================== -->
+    <!-- 4. رنگ‌های مرورگر -->
+    <!-- ========================================== -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    
+    
+    <!-- ========================================== -->
+    <!-- 7. JSON-LD (ساختار داده) -->
+    <!-- ========================================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "فروشگاه هنرمند",
+        "url": "https://honarmand.shop",
+        "description": "فروشگاه آنلاین موادعذایی خارجی",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://honarmand.shop/store}",
+        },
+        "sameAs": [
+          "https://instagram.com/honarmand_shop",
+          "https://telegram.me/honarmand_shop"
+        ]
+      }
+    </script>
+    
+    <!-- ========================================== -->
+    <!-- 8. پیش‌بارگذاری فونت‌ها -->
+    <!-- ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/BYekan+.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    
+    <!-- ========================================== -->
+    <!-- 9. Preconnect برای API -->
+    <!-- ========================================== -->
+    <link rel="preconnect" href="https://api.honarmand.shop" crossorigin />
+    <link rel="dns-prefetch" href="https://api.honarmand.shop" />
+    
+    
+    <!-- ========================================== -->
+    <!-- 11. Script برای جلوگیری از FOUC -->
+    <!-- ========================================== -->
+    <script>
+      (function() {
+        // تشخیص تم ذخیره شده
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  
+  <body>
+    <!-- ========================================== -->
+    <!-- ریشه برنامه -->
+    <!-- ========================================== -->
+    <div id="root"></div>
+    
+    <!-- ========================================== -->
+    <!-- اسکریپت‌های اصلی -->
+    <!-- ========================================== -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- ========================================== -->
+    <!-- نوتیفیکیشن‌های PWA (اختیاری) -->
+    <!-- ========================================== -->
+
+  </body>
+</html>

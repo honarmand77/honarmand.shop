@@ -1,0 +1,15 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# ممنوع کردن مسیرهای مدیریتی
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /api/
+Disallow: /admin/
+
+# سایت‌مپ
+Sitemap: https://honarmand-shop.ir/sitemap.xml
+
+# Crawl-delay برای کاهش بار سرور
+Crawl-delay: 10

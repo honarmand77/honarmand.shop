@@ -1,0 +1,286 @@
+/* src/styles/fix-cls.css */
+
+/* ============================================
+   1. رفع CLS برای تصاویر
+   ============================================ */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* رفع CLS برای تصاویر بدون width/height */
+img:not([width]):not([height]) {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* ============================================
+   2. رفع CLS برای فونت‌ها
+   ============================================ */
+@font-face {
+  font-display: swap; /* جلوگیری از CLS ناشی از فونت */
+}
+
+/* ============================================
+   3. رفع CLS برای اسکلتون‌ها
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  min-height: 20px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   4. رفع CLS برای تبلیغات و بنرها
+   ============================================ */
+.ad-container,
+.banner-container {
+  min-height: 100px;
+  position: relative;
+}
+
+/* ============================================
+   5. رفع CLS برای لیست‌ها و گریدها
+   ============================================ */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  min-height: 300px;
+  position: relative;
+}
+
+/* ============================================
+   6. رفع CLS برای مدال‌ها و دیالوگ‌ها
+   ============================================ */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+/* ============================================
+   7. رفع CLS برای انیمیشن‌ها
+   ============================================ */
+.animate-on-load {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   8. رفع CLS برای کروسل‌ها و اسلایدرها
+   ============================================ */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  min-height: 300px;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* ============================================
+   9. رفع CLS برای فرم‌ها
+   ============================================ */
+.form-group {
+  margin-bottom: 1rem;
+  min-height: 70px;
+}
+
+/* ============================================
+   10. رفع CLS برای هدر و فوتر
+   ============================================ */
+header,
+footer {
+  min-height: 60px;
+  position: relative;
+}
+
+/* ============================================
+   11. رفع CLS برای Product Cards
+   ============================================ */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+}
+
+.product-card .product-image {
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .product-title {
+  min-height: 2.5rem;
+}
+
+.product-card .product-price {
+  min-height: 2rem;
+}
+
+/* ============================================
+   12. رفع CLS برای اسکرول بار
+   ============================================ */
+* {
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+
+/* ============================================
+   14. بهینه‌سازی برای نمایش اولیه
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh; /* برای موبایل */
+}
+
+/* ============================================
+   15. پیش‌گیری از CLS ناشی از لودینگ
+   ============================================ */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide loading state after content loads */
+.app-loaded .loading-fallback {
+  display: none;
+}
+
+/* ============================================
+   16. رفع CLS برای جدول‌ها
+   ============================================ */
+.table-container {
+  overflow-x: auto;
+  min-height: 100px;
+}
+
+/* ============================================
+   17. رفع CLS برای تب‌ها
+   ============================================ */
+.tab-content {
+  min-height: 200px;
+  position: relative;
+}
+
+.tab-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.tab-panel.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+/* ============================================
+   18. رفع CLS برای دکمه‌ها
+   ============================================ */
+button {
+  min-height: 15px;
+  min-width: 15px;
+}
+
+/* ============================================
+   19. رفع CLS برای فیلدهای ورودی
+   ============================================ */
+input,
+select,
+textarea {
+  min-height: 40px;
+  padding: 8px 12px;
+}
+
+/* ============================================
+   20. رفع CLS برای Tooltip‌ها
+   ============================================ */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* ============================================
+   اضافه کردن برای بهبود عملکرد
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
